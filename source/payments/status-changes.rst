@@ -93,7 +93,7 @@ Expiry times per payment method
 +---------------------------------+-----------------------------------+
 | - ING Home'Pay                  | Next business day at 09:00 AM     |
 +---------------------------------+-----------------------------------+
-| - Bank transfer [#f1]_          | 12(+2) days                       |
+| - Bank transfer [#f1]_ [#f2]_   | 12(+2) days                       |
 +---------------------------------+-----------------------------------+
 
 .. note:: It is not a good idea to predict payment expiry. Best wait until your webhook is called and fetch the status
@@ -105,3 +105,6 @@ Expiry times per payment method
 .. [#f1] Payments made by bank transfer are done manually by your customer. Some days can pass before it becomes clear
          the payment has been paid. That's why the payment method ``banktransfer`` will by default not expire until 12
          days have passed. One or two days can be added when the 12\ :sup:`th` day is a Saturday or Sunday.
+ 
+.. [#f2] Bank transfer can have a custom due date defined via API. We will than deviate from the standard 12 days and
+         follow the set due date for expiry. 
